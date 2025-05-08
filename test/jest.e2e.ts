@@ -16,7 +16,7 @@ export default {
     'default',
     [
       'jest-ctrf-json-reporter',
-      { outputDir: 'reports', outputFile: 'e2e.report.json' },
+      { outputDir: './reports', outputFile: 'e2e.report.json' },
     ],
   ],
 };
