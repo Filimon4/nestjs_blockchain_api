@@ -1,6 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { EvmApi } from 'src/thirdApi/evm/evm.api';
+import { hex } from 'src/thirdApi/evm/evm.types';
 
 @Injectable()
 export class EvmService {
@@ -18,13 +19,11 @@ export class EvmService {
     };
   }
 
-  async getBlock(id: number) {
-    const idHex = EvmApi.praseHex(id);
-    return await this.evmApi.getBlockByNumber(idHex);
+  async getBlock(id: hex) {
+    return await this.evmApi.getBlockByNumber(id);
   }
 
-  async getTransaction(hash: string) {
-    EvmApi.assertHex(hash);
+  async getTransaction(hash: hex) {
     return await this.evmApi.getTransactionByHash(hash);
   }
 }

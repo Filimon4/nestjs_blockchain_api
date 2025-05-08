@@ -1,5 +1,7 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { EvmService } from './evm.service';
+import { ParseHexPipe } from 'src/shared/pipes/parseHex.pipe';
+import { hex } from 'src/thirdApi/evm/evm.types';
 
 @Controller('evm')
 export class EvmController {
@@ -11,12 +13,12 @@ export class EvmController {
   }
 
   @Get('block/:height')
-  async getBlock(@Param('height') height: number) {
+  async getBlock(@Param('height', ParseIntPipe, ParseHexPipe) height: hex) {
     return await this.evmService.getBlock(height);
   }
 
   @Get('transactions/:hash')
-  async getTransaction(@Param('hash') hash: string) {
+  async getTransaction(@Param('hash', ParseHexPipe) hash: hex) {
     return await this.evmService.getTransaction(hash);
   }
 }

@@ -16,15 +16,6 @@ import { HttpService } from '@nestjs/axios';
 export class EvmApi extends EvmRpcClient {
   private readonly rpcUrl = 'https://evmos-evm-rpc.publicnode.com';
 
-  public static praseHex(num: number): hex {
-    return `0x${Number(num).toString(16)}`;
-  }
-
-  public static assertHex(data: string): asserts data is hex {
-    if (typeof data !== 'string') throw new Error(`Is not hex`);
-    if (!data.startsWith('0x')) throw new Error(`Is not hex`);
-  }
-
   constructor(private readonly http: HttpService) {
     super();
   }
