@@ -9,4 +9,4 @@ WORKDIR ./app
 COPY --from=base /app/dist ./dist
 COPY --from=base /app/package*.json ./
 RUN npm i --omit=dev
-CMD ["node","./dist/main.js"]
+CMD ["node","run","start:prod"]
