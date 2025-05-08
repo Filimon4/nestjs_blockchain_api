@@ -1,0 +1,21 @@
+explain analyse select t.*
+from (
+    select height
+    from test_blocks
+    order by height desc
+    limit 10
+) b
+join test_txs t on t.block_height = b.height
+order by t.block_height desc;
+
+create index idx_txs_block_height on test_txs(block_height);
+
+explain analyse select t.*
+from (
+    select height
+    from test_blocks
+    order by height desc
+    limit 10
+) b
+join test_txs t on t.block_height = b.height
+order by t.block_height desc;
