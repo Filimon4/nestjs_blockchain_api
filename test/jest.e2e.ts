@@ -12,4 +12,11 @@ export default {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
+  reporters: [
+    'default',
+    [
+      'jest-junit',
+      { outputDirectory: './reports/junit', outputName: 'results.e2e.xml' },
+    ],
+  ],
 };
