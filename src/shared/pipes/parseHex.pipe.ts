@@ -1,5 +1,5 @@
 import { PipeTransform, Injectable, BadRequestException } from '@nestjs/common';
-import { hex } from 'src/thirdApi/evm/evm.types';
+import { hex } from '@src/thirdApi/evm/evm.types';
 
 @Injectable()
 export class ParseHexPipe implements PipeTransform<number | string, string> {

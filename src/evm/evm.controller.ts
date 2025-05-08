@@ -1,7 +1,7 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { EvmService } from './evm.service';
-import { ParseHexPipe } from 'src/shared/pipes/parseHex.pipe';
-import { hex } from 'src/thirdApi/evm/evm.types';
+import { ParseHexPipe } from '@src/shared/pipes/parseHex.pipe';
+import { hex } from '@src/thirdApi/evm/evm.types';
 
 @Controller('evm')
 export class EvmController {

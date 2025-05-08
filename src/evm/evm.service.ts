@@ -1,14 +1,10 @@
-import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { EvmApi } from 'src/thirdApi/evm/evm.api';
-import { hex } from 'src/thirdApi/evm/evm.types';
+import { EvmApi } from '@src/thirdApi/evm/evm.api';
+import { hex } from '@src/thirdApi/evm/evm.types';
 
 @Injectable()
 export class EvmService {
-  constructor(
-    private readonly httpService: HttpService,
-    private readonly evmApi: EvmApi,
-  ) {}
+  constructor(private readonly evmApi: EvmApi) {}
 
   async getLatestBlock() {
     const latestBlockHex = await this.evmApi.getLatestBlockNumber();

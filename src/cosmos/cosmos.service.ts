@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CosmosApi } from 'src/thirdApi/cosmos/cosmos.api';
+import { CosmosApi } from '@src/thirdApi/cosmos/cosmos.api';
 
 @Injectable()
 export class CosmosService {
