@@ -18,8 +18,8 @@ export default {
   reporters: [
     'default',
     [
-      'jest-junit',
-      { outputDirectory: './reports/junit', outputName: 'results.unit.xml' },
+      'jest-ctrf-json-reporter',
+      { outputDir: 'reports', outputFile: 'unit.report.json' },
     ],
   ],
 };

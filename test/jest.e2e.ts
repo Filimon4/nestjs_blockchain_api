@@ -15,8 +15,8 @@ export default {
   reporters: [
     'default',
     [
-      'jest-junit',
-      { outputDirectory: './reports/junit', outputName: 'results.e2e.xml' },
+      'jest-ctrf-json-reporter',
+      { outputDir: 'reports', outputFile: 'e2e.report.json' },
     ],
   ],
 };
