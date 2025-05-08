@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout code
@@ -71,9 +71,3 @@ jobs:
         with:
           report-path: './reports/*.json'
         if: always()
-
-      - name: Upload final aggregated test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: final-test-report
-          path: reports/final.report.json
