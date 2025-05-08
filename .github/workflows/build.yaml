@@ -35,9 +35,6 @@ jobs:
       - name: Run e2e tests
         run: npm run test:cov -- --config ./test/jest.e2e.ts
 
-      - name: Run e2e tests
-        run: npm run test:e2e
-
       - name: Upload unit test report
         uses: actions/upload-artifact@v4
         with:
